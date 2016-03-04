@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @grant.name %>
+</p>
+<p>
+  <strong>Start date:</strong>
+  <%= @grant.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @grant.end_date %>
+</p>
+
+<p>
+  <strong>Initial amt:</strong>
+  <%= number_to_currency(@grant.initial_amt) %>
+</p>
+
+<p>
+  <strong>Current amt:</strong>
+  <%= number_to_currency(@grant.current_amt) %>
+</p>
+
+<p>
+  <strong>Job function covered:</strong>
+  <%= @grant.job_function %>
+</p>
+
+<%= link_to 'Edit', edit_grant_path(@grant) %> |
+<%= link_to 'Back', grants_path %>

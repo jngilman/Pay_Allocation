@@ -1,0 +1,41 @@
+<%= form_for(@grant) do |f| %>
+  <% if @grant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@grant.errors.count, "error") %> prohibited this grant from being saved:</h2>
+
+      <ul>
+      <% @grant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :start_date %><br>
+    <%= f.date_select :start_date %>
+  </div>
+  <div class="field">
+    <%= f.label :end_date %><br>
+    <%= f.date_select :end_date %>
+  </div>
+  <div class="field">
+    <%= f.label :initial_amt %><br>
+    <%= f.text_field :initial_amt %>
+  </div>
+  <div class="field">
+    <%= f.label :current_amt %><br>
+    <%= f.text_field :current_amt %>
+  </div>
+  <div class="field">
+    <%= f.label :job_function_covered %><br>
+    <%= f.select :job_function, job_functions_options, :prompt => 'Select One' %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

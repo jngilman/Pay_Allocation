@@ -1,0 +1,37 @@
+<%= form_for(@employee) do |f| %>
+  <% if @employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+      <% @employee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :hire_date %><br>
+    <%= f.date_select :hire_date %>
+  </div>
+  <div class="field">
+    <%= f.label :last_day %><br>
+    <%= f.date_select :last_day %>
+  </div>
+  <div class="field">
+    <%= f.label :salary %><br>
+    <%= f.text_field :salary, value: number_to_currency(@employee.salary) %>
+  </div>
+  <div class="field">
+    <%= f.label :job_function %><br>
+    <%= f.select :job_function, job_functions_options, :prompt => 'Select One' %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

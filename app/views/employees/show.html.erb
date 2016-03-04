@@ -1,0 +1,31 @@
+<h1>Employee Page</h1>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @employee.name %>
+</p>
+
+<p>
+  <strong>Hire date:</strong>
+  <%= @employee.hire_date %>
+</p>
+
+<p>
+  <strong>Last day:</strong>
+  <%= @employee.last_day %>
+</p>
+
+<p>
+  <strong>Salary:</strong>
+  <%= number_to_currency(@employee.salary) %>
+</p>
+
+<p>
+  <strong>Job function:</strong>
+  <%= @employee.job_function %>
+</p>
+
+<%= link_to 'Edit', edit_employee_path(@employee) %> |
+<%= link_to 'Back', employees_path %>
